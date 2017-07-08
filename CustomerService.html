@@ -7,6 +7,17 @@
 			function Customer($scope){
 				$scope.CustomerName = "Masoom";
 				$scope.CustomerCode = "1001";
+				$scope.EnteredName = "Type your name in input field and click on submit!";
+				$scope.Submit = function(){
+					if($scope.CustomerName.length == 0){
+						//alert("This is not the proper data!");
+						$scope.EnteredName = "This is not the proper data!";
+					}
+					else {
+						//alert("This is the name !");
+						$scope.EnteredName = "This is the name \""+$scope.CustomerName+"\"";
+					}
+				}
 			}
 			var myApp = angular.module("myApp", []);
 			myApp.controller("CustomerObj", Customer)
@@ -14,16 +25,22 @@
 	</head>
 	<body ng-app="myApp">
 		<div id="CustScreen" ng-controller="CustomerObj">
-			Customer Name :- <input type="text" ng-model="CustomerName" id="CustomerName" />
-			Customer Code :- <input type="text" ng-model="CustomerCode" id="CustomerCode" />
-			<div id="divCustomerName">{{CustomerName}}</div>
-			<div id="divCustomerCode">{{CustomerCode}}</div><br/>
+			<div>Customer Name :- <input type="text" ng-model="CustomerName" id="CustomerName" /></div>
+			<div>Customer Code :- <input type="text" ng-model="CustomerCode" id="CustomerCode" /></div>
+			<div><input type="button" ng-click="Submit()" name="button" value="Submit"></div><br/>
+			{{CustomerName}}<br/>
+			{{CustomerCode}}<br/>
+			{{55 + 65}}<br/>
+			{{CustomerName +" "+CustomerCode}}<br/>
+			<input type="text" ng-model="EnteredName" id="EnteredName" /><br/><br/><br/>
+			<p>*****Below is the submit output.*****</p>
+			<div id="EnteredName">{{EnteredName}}</div>
 		</div><br/>
-		<div id="CustScreen" ng-controller="CustomerObj">
+		<!--<div id="CustScreen" ng-controller="CustomerObj">
 			Customer Name :- <input type="text" ng-model="CustomerName" id="CustomerName" />
 			Customer Code :- <input type="text" ng-model="CustomerCode" id="CustomerCode" />
 			<div id="divCustomerName">{{CustomerName}}</div>
-			<div id="divCustomerCode">{{CustomerCode}}</div><br/>
+			<div id="divCustomerCode">{{CustomerCode}}</div><br/>-->
 		</div>
 	</body>
 </html>
