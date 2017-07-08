@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<title>My AngularJS App</title>
-		<script src="angular.min.js"></script>
+		<script src="angular.js"></script>
 		<script>
 			function Customer($scope){
 				$scope.CustomerName = "Masoom";
@@ -12,7 +12,13 @@
 			myApp.controller("CustomerObj", Customer)
 		</script>
 	</head>
-	<body ng-app="MyApp">
+	<body ng-app="myApp">
+		<div id="CustScreen" ng-controller="CustomerObj">
+			Customer Name :- <input type="text" ng-model="CustomerName" id="CustomerName" />
+			Customer Code :- <input type="text" ng-model="CustomerCode" id="CustomerCode" />
+			<div id="divCustomerName">{{CustomerName}}</div>
+			<div id="divCustomerCode">{{CustomerCode}}</div><br/>
+		</div><br/>
 		<div id="CustScreen" ng-controller="CustomerObj">
 			Customer Name :- <input type="text" ng-model="CustomerName" id="CustomerName" />
 			Customer Code :- <input type="text" ng-model="CustomerCode" id="CustomerCode" />
